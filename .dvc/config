@@ -1,0 +1,4 @@
+[core]
+    remote = dvcremote
+['remote "dvcremote"']
+    url = gs://dvc_recommendation_bucket/
