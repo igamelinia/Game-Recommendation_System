@@ -1,0 +1,11 @@
+data_ingestion:
+  bucket_name: "game-recommendation-bucket"
+  bucket_file_names:
+    - "users.csv"
+    - "games.csv"
+    - "recommendations.csv"
+
+base_model:
+  embedding_size: 128
+  loss: "binary_crossentropy"
+  optimizer: "Adam"

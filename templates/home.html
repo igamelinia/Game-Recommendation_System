@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Game Recommendation System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Link ke file CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+
+  <body>
+    <div class="container mt-5">
+      <!-- Judul -->
+      <div class="header-section">
+        <h2 class="fw-bold">Game Recommendation System</h2>
+        <p class="lead">
+          This Game Recommendation System utilizes a <strong>Neural Network</strong>
+          with an embedding similarity approach to provide relevant game recommendations.
+        </p>
+      </div>
+
+      <!-- Bagian Personal & Members -->
+      <div class="row mt-4">
+        <!-- Personal -->
+        <div class="col-md-6">
+          <div class="card p-3">
+            <h5 class="fw-bold">Personal</h5>
+            <p>Sign in as a personal to get recommendations based on similarities to the games you're searching for.</p>
+            <a href="{{ url_for('personal') }}" class="btn btn-custom w-100">Login as Personal</a>
+          </div>
+        </div>
+
+        <!-- Members -->
+        <div class="col-md-6">
+          <div class="card p-3">
+            <h5 class="fw-bold">Members</h5>
+            <p>Sign in with your <strong>User ID</strong> to get personalized recommendations tailored to your profile.</p>
+            <a href="{{ url_for('members') }}" class="btn btn-custom w-100">Login as Member</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

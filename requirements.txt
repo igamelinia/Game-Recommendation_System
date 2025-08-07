@@ -1,0 +1,12 @@
+ipykernel
+pandas
+numpy
+matplotlib
+seaborn
+pyyaml
+google-cloud-storage
+flask
+scikit-learn
+tensorflow
+mlflow
+dvc

@@ -1,0 +1,11 @@
+.env
+venv/
+logs/
+Game_Recommendation_System.egg-info/
+mlartifacts/
+mlruns/
+artifacts/model/
+artifacts/raw/
+artifacts/model_checkpoint/
+artifacts/processed/
+artifacts/weights/

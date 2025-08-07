@@ -1,0 +1,35 @@
+/* ===== Global Styling ===== */
+body {
+  background-color: #02343f; /* Warna background sesuai screenshot */
+  color: #cff4fc; /* Warna teks kontras */
+  font-family: Arial, sans-serif;
+}
+
+/* ===== Judul ===== */
+.header-section {
+  background-color: rgba(2, 52, 63, 0.5); /* Warna sama, opacity 50% */
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* ===== Card Styling ===== */
+.card {
+  border-radius: 8px;
+  background-color: #ffffff; /* Putih untuk kontras */
+  color: #000000; /* Teks hitam di dalam card */
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== Tombol Login ===== */
+.btn-custom {
+  background-color: #cff4fc;
+  color: #02343f;
+  font-weight: bold;
+  border: none;
+}
+
+.btn-custom:hover {
+  background-color: #b8e9f2;
+  color: #012833;
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Game Recommendation System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+
+  <body class="bg-dark text-light">
+    <div class="container mt-5">
+      <h1 class="mb-4">Is there a similar Game you're looking for?</h1>
+
+      <!-- Form -->
+      <form action="/personal" method="POST" class="mb-4">
+        <div class="mb-3">
+          <h2>Search Game Name that you're looking for</h2>
+          <label for="keyword" class="form-label">Enter Keyword :</label>
+          <p>Search name of game</p>
+          <input type="text" name="keyword" id="keyword" value="{{ keyword or '' }}" class="form-control" />
+
+          <label for="game_name" class="form-label mt-3">Enter Game Name:</label>
+          <p>Search similar of game</p>
+          <input type="text" name="game_name" id="game_name" class="form-control" value="{{ game_name or '' }}" />
+        </div>
+        <button type="submit" class="btn btn-info mt-2">Search</button>
+      </form>
+      <a href="{{ url_for('home') }}" class="btn btn-secondary mb-3">← Back to Home</a>
+
+      <!-- Tabel hasil keyword -->
+      {% if names_list %}
+      <h3 class="mt-4">Search Results for "{{ keyword }}"</h3>
+      <div class="table-responsive">
+        <table class="table table-dark table-striped table-hover">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Date Release</th>
+              <th>Support Devices</th>
+              <th>User Reviews</th>
+              <th>Rating</th>
+              <th>Price $</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for game in names_list %}
+            <tr>
+              <td>{{ game.title }}</td>
+              <td>{{ game.date_release }}</td>
+              <td>{{ game.support_devices }}</td>
+              <td>{{ game.user_reviews }}</td>
+              <td>{{ game.rating }}</td>
+              <td>{{ game.price_final }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% elif keyword %}
+      <p class="mt-4">No games found for "{{ keyword }}".</p>
+      {% endif %}
+      <!-- Table Recommendation -->
+      {% if recommendations %}
+      <div class="table-responsive">
+        <table class="table table-dark table-striped table-hover">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Date Release</th>
+              <th>Support Devices</th>
+              <th>User Reviews</th>
+              <th>Rating</th>
+              <th>Price $</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for game in recommendations %}
+            <tr>
+              <td>{{ game.title }}</td>
+              <td>{{ game.date_release }}</td>
+              <td>{{ game.support_devices }}</td>
+              <td>{{ game.user_reviews }}</td>
+              <td>{{ game.rating }}</td>
+              <td>{{ game.price_final }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% endif %}
+    </div>
+
+    <script>
+      const keywordInput = document.getElementById("keyword");
+      const gameNameInput = document.getElementById("game_name");
+
+      keywordInput.addEventListener("input", () => {
+        gameNameInput.disabled = keywordInput.value.trim() !== "";
+      });
+
+      gameNameInput.addEventListener("input", () => {
+        keywordInput.disabled = gameNameInput.value.trim() !== "";
+      });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
