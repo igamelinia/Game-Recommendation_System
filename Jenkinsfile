@@ -40,7 +40,13 @@ pipeline{
                         echo 'DVC pull ...'
                         sh '''
                         . ${VENV_DIR}/bin/activate
-                        dvc pull
+                        dvc pull \
+                        artifacts/processed/app_decoded.pkl \
+                        artifacts/processed/app_encoded.pkl \
+                        artifacts/processed/user_decoded.pkl \
+                        artifacts/processed/user_encoded.pkl \
+                        artifacts/weights
+
                         '''
                     }
                 }

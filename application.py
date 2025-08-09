@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from pipeline.predict_pipeline import hybrid_recommendation
 from utils.recomendation_utils import search_keyword
+from config.path_config import *
 
 app = Flask(__name__)
 
