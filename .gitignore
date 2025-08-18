@@ -7,5 +7,8 @@ mlruns/
 artifacts/model/
 artifacts/raw/
 artifacts/model_checkpoint/
-artifacts/processed/
+/artifacts/processed/*.pkl
+/artifacts/processed/*.csv
+!/artifacts/processed/*_encoded.pkl
+!/artifacts/processed/*_decoded.pkl
 artifacts/weights/

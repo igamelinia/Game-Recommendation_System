@@ -1,0 +1,5 @@
+outs:
+- md5: 50f13582c13a25da66613cc53c238f81
+  size: 278173
+  hash: md5
+  path: app_decoded.pkl
