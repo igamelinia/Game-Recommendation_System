@@ -18,11 +18,14 @@ RUN apt-get update && apt-get install -y \
 # Set the working directory
 WORKDIR /app
 
+# Copy dependency files first
+COPY setup.py requirements.txt ./
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -e .
+
 # Copy the application code
 COPY . .
-
-# Install dependencies from requirements.txt
-RUN pip install --no-cache-dir -e .
 
 # Copy weights 
 COPY artifacts/weights /app/artifacts/weights
