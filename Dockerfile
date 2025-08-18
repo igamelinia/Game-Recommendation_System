@@ -25,12 +25,7 @@ COPY . .
 RUN pip install --no-cache-dir -e .
 
 # Download weights and encoded & decoded
-RUN dvc pull \
-    artifacts/processed/app_decoded.pkl \
-    artifacts/processed/app_encoded.pkl \
-    artifacts/processed/user_decoded.pkl \
-    artifacts/processed/user_encoded.pkl \
-    artifacts/weights
+RUN dvc pull artifacts/weights
 
 # Expose the port that Flask will run on
 EXPOSE 5000
