@@ -24,8 +24,8 @@ COPY . .
 # Install dependencies from requirements.txt
 RUN pip install --no-cache-dir -e .
 
-# Download weights and encoded & decoded
-RUN dvc pull artifacts/weights
+# Copy weights 
+COPY artifacts/weights /app/artifacts/weights
 
 # Expose the port that Flask will run on
 EXPOSE 5000
