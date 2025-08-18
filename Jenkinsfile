@@ -41,7 +41,10 @@ pipeline{
                         sh '''
                         . ${VENV_DIR}/bin/activate
                         dvc pull \
-                        artifacts/processed
+                        artifacts/processed/app_encoded.pkl.dvc \
+                        artifacts/processed/app_decoded.pkl.dvc \
+                        artifacts/processed/user_encoded.pkl.dvc \
+                        artifacts/processed/user_decoded.pkl.dvc \
                         artifacts/weights
 
                         '''
